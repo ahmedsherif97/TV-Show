@@ -1,0 +1,22 @@
+{
+    "name": "modules/$LOWER_NAME$",
+    "description": "",
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\$MODULE$\\App\\": "app/",
+            "Modules\\$MODULE$\\Database\\Factories\\": "database/factories/",
+            "Modules\\$MODULE$\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\$MODULE$\\Tests\\": "tests/"
+        }
+    }
+}

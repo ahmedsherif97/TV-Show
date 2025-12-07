@@ -1,0 +1,35 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Str;
+
+class $CLASS$ extends Seeder
+{
+
+    public function run()
+    {
+        $this->seedPermissions();
+    }
+
+    protected function seedPermissions()
+    {
+        $moduleName = Str::snake('$NAME$');
+
+        $permissions = ['list', 'show', 'create', 'update', 'delete'];
+        $list = [];
+        foreach ($permissions as $key => $value) {
+            $list[] = [
+                'name' => "$value $moduleName",
+                'guard_name' => 'web'
+            ];
+        }
+        Permission::upsert(
+            $list,
+            $except = [],
+            getArrayKeys($list[0], $except)
+        );
+    }
+}

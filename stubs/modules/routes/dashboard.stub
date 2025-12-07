@@ -1,0 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Modules\$MODULE$\App\Http\Controllers\Dashboard\$MODULE$Controller;
+
+Route::prefix('$ROUTE_PREFIX$')->as('$ROUTE_PREFIX$.')->group(function () {
+    Route::get('datatable',  [$MODULE$Controller::class, 'datatable'])->name('datatable');
+});
+Route::resource('$ROUTE_PREFIX$', $MODULE$Controller::class);

@@ -1,0 +1,58 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Controller;
+
+class $CLASS$ extends Controller
+{
+    public function __construct()
+    {
+        // $this->middleware('permission:list $LOWER_NAME$')->only(['index', 'datatable']);
+        // $this->middleware('permission:show $LOWER_NAME$')->only(['show']);
+        // $this->middleware('permission:create $LOWER_NAME$')->only(['create', 'store']);
+        // $this->middleware('permission:update $LOWER_NAME$')->only(['edit', 'update']);
+        // $this->middleware('permission:delete $LOWER_NAME$')->only(['destroy']);
+    }
+
+    public function index()
+    {
+        
+    }
+
+    public function store()
+    {
+        $data = $NAME$::create(request()->validate([
+            'name'        => 'required|string|min:2|max:191',
+        ]));
+
+        return $this->successResponse(trans('api.create.success'), [
+            'data' => $data
+        ]);
+    }
+
+    public function show($NAME$ $$LOWER_NAME$)
+    {
+        return $this->successResponse('', [
+            'data' => $NAME$::findOrFail($id)
+        ]);
+    }
+
+    public function update($NAME$ $$LOWER_NAME$)
+    {
+        $data = tap($$LOWER_NAME$)->update(request()->validate([
+            'name'        => 'required|string|min:2|max:191',
+        ]))->first();
+
+        return $this->successResponse(trans('api.update.success'), [
+            'data' => $data
+        ]);
+    }
+
+    public function destroy($NAME$ $$LOWER_NAME$)
+    {
+        $$LOWER_NAME$->delete;
+        return $this->successResponse(trans('api.delete.success'));
+    }
+}

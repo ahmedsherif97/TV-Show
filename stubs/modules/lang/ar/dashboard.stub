@@ -1,0 +1,9 @@
+<?php
+
+return [
+    '$LOWER_NAME$' => '$NAME$',
+    '$STUDLY_NAME$' => '$STUDLY_NAME$',
+    'list' => 'عرض',
+    'create' => 'إضافة',
+    'update' => 'تحديث',
+];

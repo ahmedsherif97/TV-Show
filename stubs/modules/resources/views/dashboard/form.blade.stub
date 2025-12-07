@@ -1,0 +1,13 @@
+<div class="row g-3">
+    <div class="col-sm-6">
+        <x-dashboard.forms.input type="text" label="Name" name="name"
+            value="{{ old('name', $$LOWER_NAME$->name ?? '') }}" placeholder="Enter name" required="true" />
+    </div>
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="basic-default-message">Message</label>
+    <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?">
+    
+    </textarea>
+</div>

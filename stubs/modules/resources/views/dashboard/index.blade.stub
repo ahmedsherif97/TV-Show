@@ -1,0 +1,43 @@
+@extends('dashboard.layouts.master')
+
+@push('styles')
+@endpush
+
+@push('breadcrumbs')
+    <x-dashboard.breadcrumbs :title="$title ?? ''">
+    </x-dashboard.breadcrumbs>
+@endpush
+
+@section('content')
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">{{ $title ?? '' }}</h5>
+            <div class="additional-btns">
+                @can('create $LOWER_NAME$')
+                    <a class="btn btn-primary" href="{{ route('dashboard.$LOWER_NAME$.create') }}">
+                        <span class="bx bx-plus"></span>
+                        {{ __('$LOWER_NAME$::dashboard.create') }} {{ __('$LOWER_NAME$::dashboard.$LOWER_NAME$') }}
+                    </a>
+                @endcan
+            </div>
+        </div>
+        <div class="card-datatable table-responsive">
+            <table class="datatables-basic table border-top table-striped table-hover"
+                data-href="{{ route('dashboard.$LOWER_NAME$.datatable') }}">
+                <thead>
+                    <tr>
+                        <th data-column="id" data-searchable="false"></th>
+                        <th data-column="name">Name</th>
+                        <th data-column="actions" data-searchable="false" data-orderable="false">
+                            {{ __('dashboard.actions') }}
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+@endsection
+
+
+@push('scripts')
+@endpush

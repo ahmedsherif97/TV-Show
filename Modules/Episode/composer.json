@@ -1,0 +1,22 @@
+{
+    "name": "modules/episode",
+    "description": "",
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Episode\\App\\": "app/",
+            "Modules\\Episode\\Database\\Factories\\": "database/factories/",
+            "Modules\\Episode\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Episode\\Tests\\": "tests/"
+        }
+    }
+}

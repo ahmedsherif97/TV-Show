@@ -1,0 +1,22 @@
+{
+    "name": "modules/tvshow",
+    "description": "",
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\TVShow\\App\\": "app/",
+            "Modules\\TVShow\\Database\\Factories\\": "database/factories/",
+            "Modules\\TVShow\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\TVShow\\Tests\\": "tests/"
+        }
+    }
+}

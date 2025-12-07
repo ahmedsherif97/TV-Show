@@ -1,0 +1,20 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Traits\ModelTrait;
+use Illuminate\Database\Eloquent\Model;
+
+class $CLASS$ extends Model
+{
+    use ModelTrait;
+    
+    protected $fillable = [
+        'name',
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+    }
+}

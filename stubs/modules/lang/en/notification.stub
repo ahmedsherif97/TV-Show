@@ -1,0 +1,8 @@
+<?php
+
+return [
+    'created' => 'new $LOWER_NAME$ is created',
+    'updated' => '$LOWER_NAME$ updated',
+    'deleted' => '$LOWER_NAME$ deleted',
+    'restored' => '$LOWER_NAME$ is restored',
+];

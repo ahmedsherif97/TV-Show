@@ -1,0 +1,5 @@
+<?php
+use Illuminate\Support\Facades\Route;
+use Modules\$MODULE$\App\Http\Controllers\Api\$MODULE$Controller;
+
+Route::apiResource('$ROUTE_PREFIX$', $MODULE$Controller::class);

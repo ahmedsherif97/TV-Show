@@ -1,0 +1,96 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Notifications\Notification;
+use $MODEL_CREATED_NOTIFICATION$;
+use $MODEL_UPDATED_NOTIFICATION$;
+use $MODEL$;
+
+class $CLASS$ extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('permission:list $LOWER_NAME$')->only(['index', 'datatable']);
+        $this->middleware('permission:show $LOWER_NAME$')->only(['show']);
+        $this->middleware('permission:create $LOWER_NAME$')->only(['create', 'store']);
+        $this->middleware('permission:update $LOWER_NAME$')->only(['edit', 'update']);
+        $this->middleware('permission:delete $LOWER_NAME$')->only(['destroy']);
+        $this->middleware(\App\Http\Middleware\DataTableMiddleware::class)->only('datatable');
+    }
+
+    public function index()
+    {
+        return view('$LOWER_NAME$::dashboard.index', [
+            'title'     => config('$LOWER_NAME$.name'),
+            'result'    => []
+        ]);
+    }
+
+    public function datatable()
+    {
+        $html = view('$LOWER_NAME$::dashboard.datatable', [
+            'result'    => $result = $NAME$::query()
+                ->when(request('search'), function ($q) {
+                    $q->where('name', 'LIKE', '%' . request('search') . '%');
+                    // $q->orWhere('email', 'LIKE', '%' . request('search') . '%');
+                })
+                ->orderBy(request('orderBy', 'id'), request('orderAs', 'desc'))
+                ->paginate(request('perPage', 10))
+        ]);
+        return viewToDatatable($html, $result);
+    }
+
+    public function create()
+    {
+        return view('$LOWER_NAME$::dashboard.create', [
+            'title'     => config('$LOWER_NAME$.name')
+        ]);
+    }
+
+    public function store()
+    {
+        $$LOWER_NAME$ = $NAME$::create(request()->validate([
+            'name'        => 'required|string|min:2|max:191',
+        ]));
+
+        Notification::queue($this->user ?? [], new $NAME$Created($$LOWER_NAME$));
+
+        return back()->with('alert-success', trans('dashboard.create.success'));
+    }
+
+    public function show($NAME$ $$LOWER_NAME$)
+    {
+        return view('$LOWER_NAME$::dashboard.show', [
+            'title' => 'show $LOWER_NAME$',
+            '$LOWER_NAME$' => $$LOWER_NAME$
+        ]);
+    }
+
+    public function edit($NAME$ $$LOWER_NAME$)
+    {
+        return view('$LOWER_NAME$::dashboard.edit', [
+            'title' => 'edit $LOWER_NAME$',
+            '$LOWER_NAME$' => $$LOWER_NAME$
+        ]);
+    }
+
+    public function update($NAME$ $$LOWER_NAME$)
+    {
+        $$LOWER_NAME$->update(request()->validate([
+            'name'        => 'required|string|min:2|max:191',
+        ]));
+
+        Notification::queue($this->user ?? [], new $NAME$Updated($$LOWER_NAME$));
+
+        return back()->with('alert-success', trans('dashboard.create.success'));
+    }
+
+    public function destroy($NAME$ $$LOWER_NAME$)
+    {
+        $$LOWER_NAME$->delete();
+        return back()->with('alert-success', trans('dashboard.delete.success'));
+    }
+}

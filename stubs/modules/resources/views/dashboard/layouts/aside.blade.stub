@@ -1,0 +1,24 @@
+@canany(['create $LOWER_NAME$', 'list $LOWER_NAME$'])
+<li class="menu-item">
+    <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div class="text-truncate">{{__('$LOWER_NAME$::dashboard.$LOWER_NAME$')}}</div>
+    </a>
+    <ul class="menu-sub">
+        @can('create $LOWER_NAME$')
+            <li class="menu-item">
+                <a href="{{route('dashboard.$LOWER_NAME$.create')}}" class="menu-link">
+                    <div class="text-truncate">{{__('$LOWER_NAME$::dashboard.create')}} {{__('$LOWER_NAME$::dashboard.$LOWER_NAME$')}}</div>
+                </a>
+            </li>
+        @endcan
+        @can('list $LOWER_NAME$')
+            <li class="menu-item">
+                <a href="{{route('dashboard.$LOWER_NAME$.index')}}" class="menu-link">
+                    <div class="text-truncate">{{__('$LOWER_NAME$::dashboard.list')}} {{__('$LOWER_NAME$::dashboard.$STUDLY_NAME$')}}</div>
+                </a>
+            </li>
+        @endcan
+    </ul>
+</li>
+@endcanany

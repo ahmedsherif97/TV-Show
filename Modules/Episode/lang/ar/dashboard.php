@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'episode' => 'الحلقة',
+    'an episode' => 'حلقة',
+    'episodes' => 'الحلقات',
+    'list' => 'عرض',
+    'create' => 'إضافة',
+    'airing_at' => 'تعرض في:',
+    'published_at' => 'تاريخ النشر',
+    'video' => 'فيديو',
+    'drop_or_click_video' => 'اسحب أو انقر لتحميل الفيديو',
+    'video_not_supported' => 'نوع الملف غير مدعوم',
+    'delete_video' => 'حذف الفيديو',
+    'no_video' => 'لا يوجد فيديو تم تحميله بعد',
+    'duration' => 'المدة',
+    'manage_video' => 'إدارة الفيديو',
+    'update' => 'تحديث',
+    'upload_success_title' => 'تم الرفع بنجاح',
+    'upload_success_text' => 'تم التحديث بنجاح',
+    'upload_error_title' => 'فشل في الرفع',
+    'delete_confirm_text' => 'هل أنت متأكد أنك تريد الحذف؟',
+    'delete_confirm_title' => 'تأكيد الحذف',
+    'delete_confirm_yes' => 'نعم، احذف',
+    'delete_confirm_cancel' => 'إلغاء',
+    'deleted_title' => 'تم الحذف',
+    'deleted_text' => 'تم حذف العنصر بنجاح',
+    'delete_error_title' => 'فشل في الحذف',
+    'delete_error_text' => 'حدث خطأ أثناء الحذف',
+
+];
